@@ -22,14 +22,7 @@ var app = new Vue({
             let h = node.offsetHeight;
             let w = node.offsetWidth;
             let top = window.innerHeight + h;
-            
-            // Set left to max 20% from sides
             let sideOffset = window.innerWidth * Math.random();
-            /*
-            if (Math.random() > 0.5 ) { // random true or false 50/50
-                sideOffset = window.innerWidth - sideOffset;
-            }
-            */
 
             node.style.left = `${sideOffset}px`;
             node.style.bottom = `-${h}px`;
@@ -52,24 +45,16 @@ var app = new Vue({
             });
         });
 
-        document.addEventListener('scroll', (event) => {
-            //console.log(event);
-        });
-
         var riseEl = document.getElementsByClassName('fx-rise');
         for (let i = 0; i < riseEl.length; i++) {
             this.startRise(riseEl.item(i));
         }
 
-        let bubbleDelay = Math.round(window.innerWidth * 2) / 2; // increase to do more
-        bubbleDelay = 750;
-
-        console.log(bubbleDelay);
+        let bubbleDelay = 750;
 
         window.setInterval(() => {
             this.bubbles.push({
                 size: Math.floor(Math.random() * 6) + 1,
-                //speed: Math.ceil(Math.random() * 6),
             });
 
             window.setTimeout(() => {
